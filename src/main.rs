@@ -1,9 +1,14 @@
-use std::{env,error::Error,fs::File,io::{BufRead, BufReader}};
 use sha1::Digest;
+use std::{
+    env,
+    error::Error,
+    fs::File,
+    io::{BufRead, BufReader},
+};
 
 const SHA1_HEX_STR_LEN: usize = 40;
 
-fn main() -> Result<(), Box<dyn Error>>{
+fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = env::args().collect();
 
     if args.len() != 3 {
@@ -28,5 +33,5 @@ fn main() -> Result<(), Box<dyn Error>>{
         }
     }
     println!("Hashed password not found on wordlist.");
-    Ok(()) 
+    Ok(())
 }
